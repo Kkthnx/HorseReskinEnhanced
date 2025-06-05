@@ -68,7 +68,20 @@ namespace HorseReskinEnhanced.Menus
                 Game1.addHUDMessage(new HUDMessage("No horse skins available.", HUDMessage.error_type));
                 return;
             }
-
+            if (ModEntry.HorseNameMap.TryGetValue(HorseId, out var horse) &&
+                horse.modData.TryGetValue("Kkthnx.HorseReskinEnhanced/SkinId", out var skinIdStr) &&
+                int.TryParse(skinIdStr, out var skinId))
+            {
+                CurrentSkinId = skinId;
+            }
+            else if (ModEntry.HorseSkinMap.TryGetValue(HorseId, out var mapId))
+            {
+                CurrentSkinId = mapId;
+            }
+            else
+            {
+                CurrentSkinId = 1;
+            }
             BackButton = new ClickableTextureComponent(Rectangle.Empty, null, Rectangle.Empty, 0f);
             ForwardButton = new ClickableTextureComponent(Rectangle.Empty, null, Rectangle.Empty, 0f);
             OkButton = new ClickableTextureComponent(Rectangle.Empty, null, Rectangle.Empty, 0f);
@@ -177,7 +190,9 @@ namespace HorseReskinEnhanced.Menus
                 Game1.addHUDMessage(new HUDMessage("Invalid horse.", HUDMessage.error_type));
                 return;
             }
-
+            horse.modData["Kkthnx.HorseReskinEnhanced/SkinId"] = CurrentSkinId.ToString();
+            ModEntry.HorseSkinMap[HorseId] = CurrentSkinId;
+            ModEntry.ReLoadHorseSprites(horse);
             if (Context.IsMainPlayer)
                 ModEntry.SaveHorseReskin(HorseId, CurrentSkinId);
             else

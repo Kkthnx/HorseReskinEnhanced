@@ -40,6 +40,12 @@ namespace HorseReskinEnhanced
         private static int LastDayForCache = -1;
         private static bool IsCacheDirty = true;
 
+        private double _lastSyncTime = 0;
+        private bool _pendingSync = false;
+        private const double SyncIntervalSeconds = 1.0; // Only sync at most once per second
+
+        private const string SkinIdModDataKey = "Kkthnx.HorseReskinEnhanced/SkinId";
+
         public override void Entry(IModHelper helper)
         {
             SMonitor = Monitor;
@@ -81,27 +87,26 @@ namespace HorseReskinEnhanced
         private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
         {
             if (!Config.Enabled) return;
-
-            // Clear existing maps
             HorseSkinMap.Clear();
             HorseNameMap.Clear();
             HorseNameMap.AddRange(GetHorsesDict());
             LoadAllSprites();
-
+            foreach (var horse in HorseNameMap.Values)
+            {
+                if (horse.modData.TryGetValue(SkinIdModDataKey, out var skinIdStr) && int.TryParse(skinIdStr, out var skinId))
+                    HorseSkinMap[horse.HorseId] = skinId;
+            }
             if (Context.IsMainPlayer)
             {
                 foreach (var horse in HorseNameMap.Values)
                 {
                     GenerateHorseSkinMap(horse);
                 }
-
-                // If in multiplayer, sync with all players
                 if (Context.IsMultiplayer)
                 {
                     _skinManager.SyncWithPeers();
                 }
             }
-
             if (Context.IsMainPlayer && Context.IsMultiplayer)
             {
                 var message = new SkinUpdateMessage { SkinMap = new Dictionary<Guid, int>(HorseSkinMap) };
@@ -185,6 +190,11 @@ namespace HorseReskinEnhanced
                     if (horse.Manners != HorseSkinMap.GetValueOrDefault(horse.HorseId))
                     {
                         _skinManager.HandleMounting(horse);
+                        // Mark sync as pending if in multiplayer and host
+                        if (Context.IsMainPlayer && Context.IsMultiplayer)
+                        {
+                            _pendingSync = true;
+                        }
                     }
                 }
             }
@@ -195,6 +205,20 @@ namespace HorseReskinEnhanced
                 foreach (var horse in _stateManager.GetHorsesInLocation(Game1.currentLocation))
                 {
                     _skinManager.UpdateHorseSkin(horse, horse.Manners, false, false);
+                }
+            }
+
+            // Batching/throttling sync logic
+            if (Context.IsMainPlayer && Context.IsMultiplayer)
+            {
+                double now = Game1.currentGameTime.TotalGameTime.TotalSeconds;
+                if (_pendingSync && now - _lastSyncTime >= SyncIntervalSeconds)
+                {
+                    var message = new SkinUpdateMessage { SkinMap = new Dictionary<Guid, int>(HorseSkinMap) };
+                    SHelper.Multiplayer.SendMessage(message, SkinUpdateMessageId, modIDs: new[] { SModManifest.UniqueID });
+                    SMonitor.Log($"[SYNC] Batched horse skin sync sent at {now:F2}s", LogLevel.Trace);
+                    _lastSyncTime = now;
+                    _pendingSync = false;
                 }
             }
         }
@@ -232,6 +256,25 @@ namespace HorseReskinEnhanced
 
             switch (e.Type)
             {
+                case var type when type == ReskinHorseMessageId:
+                    if (Context.IsMainPlayer && e.FromModID == SModManifest.UniqueID && e.ReadAs<HorseReskinMessage>() is HorseReskinMessage reskinRequest)
+                    {
+                        var horse = GetHorseById(reskinRequest.HorseId);
+                        if (horse != null && IsNotATractor(horse) && horse.getOwner()?.UniqueMultiplayerID == reskinRequest.RequestingPlayerId)
+                        {
+                            horse.Manners = reskinRequest.SkinId;
+                            UpdateHorseSkinMap(reskinRequest.HorseId, reskinRequest.SkinId);
+                            ReLoadHorseSprites(horse);
+                            // Broadcast to all
+                            SHelper.Multiplayer.SendMessage(new HorseReskinMessage(reskinRequest.HorseId, reskinRequest.SkinId, reskinRequest.RequestingPlayerId), ReloadHorseSpritesMessageId, new[] { SModManifest.UniqueID });
+                            SMonitor.Log($"[SYNC] Host processed farmhand reskin request for horse {horse.Name} (ID: {horse.HorseId}) to skin {reskinRequest.SkinId}", LogLevel.Trace);
+                        }
+                        else
+                        {
+                            SMonitor.Log($"[SYNC] Host rejected reskin request: invalid horse or not owner.", LogLevel.Warn);
+                        }
+                    }
+                    break;
                 case var type when type == ReloadHorseSpritesMessageId:
                     if (e.FromModID == SModManifest.UniqueID && e.ReadAs<HorseReskinMessage>() is HorseReskinMessage reskinMessage)
                     {
@@ -408,32 +451,36 @@ namespace HorseReskinEnhanced
 
         public static void ReLoadHorseSprites(Horse horse)
         {
-            if (horse != null && 
-                HorseSkinMap.TryGetValue(horse.HorseId, out int skinId) && 
-                SkinTextureMap.TryGetValue(skinId, out var lazyTexture) && 
-                lazyTexture.Value != null)
+            if (horse != null)
             {
-                // Update the horse's sprite
-                horse.Sprite.spriteTexture = lazyTexture.Value;
-                horse.Sprite.UpdateSourceRect();
-                
-                // Force a sprite update by temporarily changing the sprite index
-                int originalIndex = horse.Sprite.currentFrame;
-                horse.Sprite.currentFrame = (horse.Sprite.currentFrame + 1) % 4;
-                horse.Sprite.UpdateSourceRect();
-                horse.Sprite.currentFrame = originalIndex;
-                horse.Sprite.UpdateSourceRect();
-
-                // If this horse is mounted, ensure the rider's mount reference is updated
-                if (Game1.currentLocation != null)
+                int skinId = 1;
+                if (horse.modData.TryGetValue(SkinIdModDataKey, out var skinIdStr) && int.TryParse(skinIdStr, out var parsedId))
+                    skinId = parsedId;
+                else if (HorseSkinMap.TryGetValue(horse.HorseId, out var mapId))
+                    skinId = mapId;
+                else
+                    skinId = 1;
+                HorseSkinMap[horse.HorseId] = skinId;
+                horse.modData[SkinIdModDataKey] = skinId.ToString();
+                if (SkinTextureMap.TryGetValue(skinId, out var lazyTexture) && lazyTexture.Value != null)
                 {
-                    var rider = Game1.currentLocation.farmers.FirstOrDefault(f => f.mount == horse);
-                    if (rider != null)
+                    horse.Sprite.spriteTexture = lazyTexture.Value;
+                    horse.Sprite.UpdateSourceRect();
+                    int originalIndex = horse.Sprite.currentFrame;
+                    horse.Sprite.currentFrame = (horse.Sprite.currentFrame + 1) % 4;
+                    horse.Sprite.UpdateSourceRect();
+                    horse.Sprite.currentFrame = originalIndex;
+                    horse.Sprite.UpdateSourceRect();
+                    if (Game1.currentLocation != null)
                     {
-                        rider.mount.Sprite.spriteTexture = lazyTexture.Value;
-                        rider.mount.Sprite.UpdateSourceRect();
-                        rider.mount.Sprite.currentFrame = originalIndex;
-                        rider.mount.Sprite.UpdateSourceRect();
+                        var rider = Game1.currentLocation.farmers.FirstOrDefault(f => f.mount == horse);
+                        if (rider != null)
+                        {
+                            rider.mount.Sprite.spriteTexture = lazyTexture.Value;
+                            rider.mount.Sprite.UpdateSourceRect();
+                            rider.mount.Sprite.currentFrame = originalIndex;
+                            rider.mount.Sprite.UpdateSourceRect();
+                        }
                     }
                 }
             }
@@ -445,7 +492,13 @@ namespace HorseReskinEnhanced
                 SHelper.Multiplayer.SendMessage(new HorseReskinMessage(horseId, skinId), ReloadHorseSpritesMessageId, new[] { SModManifest.UniqueID });
         }
 
-        public static void UpdateHorseSkinMap(Guid horseId, int skinId) => HorseSkinMap[horseId] = skinId;
+        public static void UpdateHorseSkinMap(Guid horseId, int skinId)
+        {
+            HorseSkinMap[horseId] = skinId;
+            var horse = GetHorseById(horseId);
+            if (horse != null)
+                horse.modData[SkinIdModDataKey] = skinId.ToString();
+        }
 
         private static void LoadAllSprites()
         {
@@ -571,17 +624,16 @@ namespace HorseReskinEnhanced
         {
             if (!Context.IsMainPlayer)
             {
-                // Only host can update, farmhands must send request
                 SHelper.Multiplayer.SendMessage(new HorseReskinMessage(horseId, skinId, Game1.player.UniqueMultiplayerID), ReloadHorseSpritesMessageId, new[] { SModManifest.UniqueID });
                 return;
             }
             var horse = GetHorseById(horseId);
             if (horse == null || horse.getOwner()?.UniqueMultiplayerID != requestingPlayerId)
                 return;
+            horse.modData[SkinIdModDataKey] = skinId.ToString();
             horse.Manners = skinId;
             UpdateHorseSkinMap(horseId, skinId);
             ReLoadHorseSprites(horse);
-            // Broadcast to all
             SHelper.Multiplayer.SendMessage(new HorseReskinMessage(horseId, skinId, requestingPlayerId), ReloadHorseSpritesMessageId, new[] { SModManifest.UniqueID });
         }
 
