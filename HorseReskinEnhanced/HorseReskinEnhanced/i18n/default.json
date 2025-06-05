@@ -1,0 +1,23 @@
+{
+  "config.amount-of-horse-skins.name": "Total Horse Skin Assets",
+  "config.amount-of-horse-skins.description": "The number of .png files in the assets folder for this mod.",
+  "config.singleplayer-update-rate.name": "Singleplayer Update Rate",
+  "config.singleplayer-update-rate.description": "How often to update horse textures in singleplayer (in ticks). Lower values mean more frequent updates but may impact performance.",
+  "config.multiplayer-update-rate.name": "Multiplayer Update Rate",
+  "config.multiplayer-update-rate.description": "How often to update horse textures in multiplayer (in ticks). Lower values mean more frequent updates but may impact network performance.",
+  "config.show-notifications.name": "Show Notifications",
+  "config.show-notifications.description": "Whether to show notifications when horse skins are updated.",
+  "config.play-sounds.name": "Play Sounds",
+  "config.play-sounds.description": "Whether to play sounds when horse skins are updated.",
+  "config.show-preview-animation.name": "Show Preview Animation",
+  "config.show-preview-animation.description": "Whether to show the preview animation in the reskin menu.",
+  "config.success-message-color.name": "Success Message Color",
+  "config.success-message-color.description": "The color to use for success messages (in hex format, e.g. #FFD700 for gold).",
+  "config.remember-last-skin.name": "Remember Last Skin",
+  "config.remember-last-skin.description": "Whether to remember the last skin used for each horse.",
+  "config.auto-apply-last-skin.name": "Auto-Apply Last Skin",
+  "config.auto-apply-last-skin.description": "Whether to automatically apply the last used skin when a new horse is added.",
+  "menu.title": "Horse Reskin",
+  "error.not-your-stable": "You can only reskin your own horse at your stable.",
+  "notification.new-horse": "Applied skin to new horse: {{horseName}}"
+}

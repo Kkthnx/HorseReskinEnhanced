@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<AssemblyName>HorseReskinEnhanced</AssemblyName>
+		<RootNamespace>HorseReskinEnhanced</RootNamespace>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
+		<Reference Include="StardewModdingAPI">
+			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\StardewModdingAPI.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="StardewValley">
+			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Stardew Valley.exe</HintPath>
+			<Private>False</Private>
+		</Reference>
+		<Reference Include="GenericModConfigMenu">
+			<HintPath>C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Mods\GenericModConfigMenu\GenericModConfigMenu.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="manifest.json" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="assets\**" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+</Project>

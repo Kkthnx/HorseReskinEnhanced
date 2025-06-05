@@ -1,0 +1,16 @@
+{
+  "Name": "Horse Reskin Enhanced",
+  "Author": "Kkthnx",
+  "Version": "1.0.0",
+  "Description": "Allows players to reskin their horses with custom 224x128 textures.",
+  "UniqueID": "Kkthnx.HorseReskinEnhanced",
+  "EntryDll": "HorseReskinEnhanced.dll",
+  "MinimumApiVersion": "4.2.1",
+  "UpdateKeys": [],
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "IsRequired": false
+    }
+  ]
+}

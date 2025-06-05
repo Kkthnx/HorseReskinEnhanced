@@ -1,0 +1,177 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|c:\\users\\administrator\\source\\repos\\horsereskinenhanced\\horsereskinenhanced\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|solutionrelative:horsereskinenhanced\\modentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|c:\\users\\administrator\\source\\repos\\horsereskinenhanced\\horsereskinenhanced\\menus\\horsereskinmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|solutionrelative:horsereskinenhanced\\menus\\horsereskinmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|c:\\users\\administrator\\source\\repos\\horsereskinenhanced\\horsereskinenhanced\\genericmodconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|solutionrelative:horsereskinenhanced\\genericmodconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|c:\\users\\administrator\\source\\repos\\horsereskinenhanced\\horsereskinenhanced\\commandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|solutionrelative:horsereskinenhanced\\commandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|c:\\users\\administrator\\source\\repos\\horsereskinenhanced\\horsereskinenhanced\\messages\\horsereskinmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|solutionrelative:horsereskinenhanced\\messages\\horsereskinmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|c:\\users\\administrator\\source\\repos\\horsereskinenhanced\\horsereskinenhanced\\config\\modconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|solutionrelative:horsereskinenhanced\\config\\modconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|c:\\users\\administrator\\source\\repos\\horsereskinenhanced\\horsereskinenhanced\\i18n\\default.json||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|solutionrelative:horsereskinenhanced\\i18n\\default.json||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|c:\\users\\administrator\\source\\repos\\horsereskinenhanced\\horsereskinenhanced\\manifest.json||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|solutionrelative:horsereskinenhanced\\manifest.json||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|c:\\users\\administrator\\source\\repos\\horsereskinenhanced\\horsereskinenhanced\\horsereskinenhanced.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A8E57849-5065-4098-8121-301672389DC9}|HorseReskinEnhanced\\HorseReskinEnhanced.csproj|solutionrelative:horsereskinenhanced\\horsereskinenhanced.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GenericModConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\GenericModConfig.cs",
+              "RelativeDocumentMoniker": "HorseReskinEnhanced\\GenericModConfig.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\GenericModConfig.cs",
+              "RelativeToolTip": "HorseReskinEnhanced\\GenericModConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T23:11:45.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "default.json",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\i18n\\default.json",
+              "RelativeDocumentMoniker": "HorseReskinEnhanced\\i18n\\default.json",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\i18n\\default.json",
+              "RelativeToolTip": "HorseReskinEnhanced\\i18n\\default.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-20T01:26:30.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HorseReskinMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\Menus\\HorseReskinMenu.cs",
+              "RelativeDocumentMoniker": "HorseReskinEnhanced\\Menus\\HorseReskinMenu.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\Menus\\HorseReskinMenu.cs",
+              "RelativeToolTip": "HorseReskinEnhanced\\Menus\\HorseReskinMenu.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAvwJ8AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T01:20:44.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ModEntry.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\ModEntry.cs",
+              "RelativeDocumentMoniker": "HorseReskinEnhanced\\ModEntry.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\ModEntry.cs",
+              "RelativeToolTip": "HorseReskinEnhanced\\ModEntry.cs",
+              "ViewState": "AgIAAI0BAAAAAAAAAAAnwI8BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T22:34:58.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ModConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\Config\\ModConfig.cs",
+              "RelativeDocumentMoniker": "HorseReskinEnhanced\\Config\\ModConfig.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\Config\\ModConfig.cs",
+              "RelativeToolTip": "HorseReskinEnhanced\\Config\\ModConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T22:34:49.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "manifest.json",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\manifest.json",
+              "RelativeDocumentMoniker": "HorseReskinEnhanced\\manifest.json",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\manifest.json",
+              "RelativeToolTip": "HorseReskinEnhanced\\manifest.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-17T22:34:39.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HorseReskinMessage.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\Messages\\HorseReskinMessage.cs",
+              "RelativeDocumentMoniker": "HorseReskinEnhanced\\Messages\\HorseReskinMessage.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\Messages\\HorseReskinMessage.cs",
+              "RelativeToolTip": "HorseReskinEnhanced\\Messages\\HorseReskinMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwBcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T22:34:32.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\CommandHandler.cs",
+              "RelativeDocumentMoniker": "HorseReskinEnhanced\\CommandHandler.cs",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\CommandHandler.cs",
+              "RelativeToolTip": "HorseReskinEnhanced\\CommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T22:48:32.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HorseReskinEnhanced.csproj",
+              "DocumentMoniker": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\HorseReskinEnhanced.csproj",
+              "RelativeDocumentMoniker": "HorseReskinEnhanced\\HorseReskinEnhanced.csproj",
+              "ToolTip": "C:\\Users\\Administrator\\source\\repos\\HorseReskinEnhanced\\HorseReskinEnhanced\\HorseReskinEnhanced.csproj",
+              "RelativeToolTip": "HorseReskinEnhanced\\HorseReskinEnhanced.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-19T04:02:09.447Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
